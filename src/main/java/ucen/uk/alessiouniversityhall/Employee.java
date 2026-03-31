@@ -5,7 +5,8 @@ public class Employee extends Person {
     private String role;
     private double salary;
 
-    public Employee(String fullName, String dob, String nationality, String gender, String hall, String employeeId, String role, double salary) {
+    public Employee(String fullName, String dob, String nationality, String gender, Hall hall, String employeeId, String role, double salary) {
+
         super(fullName, dob, nationality, gender, hall);
 
         this.employeeId = employeeId;
@@ -29,8 +30,8 @@ public class Employee extends Person {
     public String toString() {
         return super.toString() +
                 "\nEmployee ID: " + employeeId +
-                "\n Role: " + role +
-                "\n Salary: £" + salary +
+                "\nRole: " + role +
+                "\nSalary: £" + salary +
                 "\n--------------------------------------";
     }
 }
