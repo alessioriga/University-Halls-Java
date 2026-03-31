@@ -11,6 +11,10 @@ public class Store {
         index = 0;
     }
 
+    public void addPerson(Person p) {
+        people.add(p);
+    }
+
     public ArrayList<Person> getPeople() {
         return people;
     }
@@ -19,4 +23,20 @@ public class Store {
         this.people = people;
         index = 0;
     }
+
+    public Person getNextPerson() {
+
+        if (people.isEmpty())
+            return null;
+
+        if  (index < people.size())
+            index = 0;
+
+        return people.get(index++);
+    }
+
+    public int size() {
+        return people.size();
+    }
+
 }
