@@ -1,8 +1,9 @@
 package ucen.uk.alessiouniversityhall;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Payment {
+public class Payment implements Serializable {
     private double rent;
     private Date paymentDate;
 
