@@ -29,7 +29,7 @@ public class Store {
         if (people.isEmpty())
             return null;
 
-        if  (index < people.size())
+        if (index >= people.size())
             index = 0;
 
         return people.get(index++);
@@ -38,5 +38,4 @@ public class Store {
     public int size() {
         return people.size();
     }
-
 }
