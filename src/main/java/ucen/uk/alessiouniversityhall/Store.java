@@ -1,8 +1,9 @@
 package ucen.uk.alessiouniversityhall;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Store {
+public class Store implements Serializable {
     private ArrayList<Person> people;
     private int index;
 
