@@ -33,7 +33,7 @@ public class Hall implements Serializable {
     }
 
     public void addResident(Person p) {
-        this.residents.add(p);
+        residents.add(p);
     }
 
     @Override
