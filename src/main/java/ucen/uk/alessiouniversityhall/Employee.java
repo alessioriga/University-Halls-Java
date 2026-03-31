@@ -24,4 +24,13 @@ public class Employee extends Person {
     public double getSalary() {
         return salary;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\nEmployee ID: " + employeeId +
+                "\n Role: " + role +
+                "\n Salary: £" + salary +
+                "\n--------------------------------------";
+    }
 }
