@@ -1,8 +1,9 @@
 package ucen.uk.alessiouniversityhall;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Hall {
+public class Hall implements Serializable {
     private String hallName;
     private String dietType;
     private boolean groundFloorAvailable;
