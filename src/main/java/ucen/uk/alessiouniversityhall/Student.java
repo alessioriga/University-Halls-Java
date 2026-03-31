@@ -1,7 +1,7 @@
 package ucen.uk.alessiouniversityhall;
 
-public class Student extends Person {
-    private String StudentId;
+public class Student extends Person{
+    private String studentId;
     private String phone;
     private String course;
     private int yearOfStudy;
@@ -9,10 +9,9 @@ public class Student extends Person {
     private boolean groundFloor;
     private Payment payment;
 
-    public Student(String fullName, String dob, String nationality, String gender, String hall, String studentId, String phone, String course, int yearOfStudy, String diet, boolean groundFloor, Payment payment) {
+    public Student(String fullName, String dob, String nationality, String gender, Hall hall, String studentId, String phone, String course, int yearOfStudy, String diet, boolean groundFloor, Payment payment) {
         super(fullName, dob, nationality, gender, hall);
-
-        StudentId = studentId;
+        this.studentId = studentId;
         this.phone = phone;
         this.course = course;
         this.yearOfStudy = yearOfStudy;
@@ -22,7 +21,7 @@ public class Student extends Person {
     }
 
     public String getStudentId() {
-        return StudentId;
+        return studentId;
     }
 
     public String getPhone() {
@@ -51,6 +50,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
+
         return  super.toString() +
                 "\nStudent ID: " + studentId +
                 "\nPhone: " + phone +
