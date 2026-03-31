@@ -2,14 +2,14 @@ package ucen.uk.alessiouniversityhall;
 
 import java.io.Serializable;
 
-public class Person implements Serializable {
+public class Person  implements Serializable {
     private String fullName;
     private String dob;
     private String nationality;
     private String gender;
-    private String hall;
+    private Hall hall;
 
-    public Person(String fullName, String dob, String nationality, String gender, String hall) {
+    public Person(String fullName, String dob, String nationality, String gender, Hall hall) {
         this.fullName = fullName;
         this.dob = dob;
         this.nationality = nationality;
@@ -33,7 +33,7 @@ public class Person implements Serializable {
         return gender;
     }
 
-    public String getHall() {
+    public Hall getHall() {
         return hall;
     }
 
