@@ -26,6 +26,6 @@ public class Payment implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
         return "Rent: £" + rent +
-                "\nPayment Date: " +  sdf.format(paymentDate);
+                "\nPayment Date: " + sdf.format(paymentDate);
     }
 }
