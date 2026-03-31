@@ -48,4 +48,18 @@ public class Student extends Person {
     public Payment getPayment() {
         return payment;
     }
+
+    @Override
+    public String toString() {
+        return  super.toString() +
+                "\nStudent ID: " + studentId +
+                "\nPhone: " + phone +
+                "\nCourse: " + course +
+                "\nYear: " + yearOfStudy +
+                "\nDiet: " + diet +
+                "\nGroundFloor: " + groundFloor +
+                "\n" + payment.toString() +
+                "\n--------------------------------------";
+
+    }
 }
