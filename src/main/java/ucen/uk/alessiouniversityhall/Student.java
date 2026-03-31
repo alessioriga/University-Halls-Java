@@ -1,4 +1,50 @@
 package ucen.uk.alessiouniversityhall;
 
-public class Student {
+public class Student extends Person {
+    private String StudentId;
+    private String phone;
+    private String course;
+    private int yearOfStudy;
+    private String diet;
+    private boolean groundFloor;
+    private Payment payment;
+
+    public Student(String fullName, String dob, String nationality, String gender, String hall, String studentId, String phone, String course, int yearOfStudy, String diet, boolean groundFloor, Payment payment) {
+        super(fullName, dob, nationality, gender, hall);
+        StudentId = studentId;
+        this.phone = phone;
+        this.course = course;
+        this.yearOfStudy = yearOfStudy;
+        this.diet = diet;
+        this.groundFloor = groundFloor;
+        this.payment = payment;
+    }
+
+    public String getStudentId() {
+        return StudentId;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public int getYearOfStudy() {
+        return yearOfStudy;
+    }
+
+    public String getDiet() {
+        return diet;
+    }
+
+    public boolean isGroundFloor() {
+        return groundFloor;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
 }
