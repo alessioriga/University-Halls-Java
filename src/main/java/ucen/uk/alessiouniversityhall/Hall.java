@@ -35,4 +35,9 @@ public class Hall implements Serializable {
     public void addResident(Person p) {
         this.residents.add(p);
     }
+
+    @Override
+    public String toString() {
+        return hallName + " (Diet: " + dietType + ", Ground Floor: " + groundFloorAvailable + ")";
+    }
 }
