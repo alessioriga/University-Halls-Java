@@ -5,8 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Payment implements Serializable {
-    private double rent;
-    private Date paymentDate;
+    private final double rent;
+    private final Date paymentDate;
 
     public Payment(double rent) {
         this.rent = rent;
