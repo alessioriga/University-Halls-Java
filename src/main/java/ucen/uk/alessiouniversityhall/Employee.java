@@ -1,9 +1,9 @@
 package ucen.uk.alessiouniversityhall;
 
 public class Employee extends Person {
-    private String employeeId;
-    private String role;
-    private double salary;
+    private final String employeeId;
+    private final String role;
+    private final double salary;
 
     public Employee(String fullName, String dob, String nationality, String gender, Hall hall, String employeeId, String role, double salary) {
 
