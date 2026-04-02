@@ -3,10 +3,10 @@ package ucen.uk.alessiouniversityhall;
 import java.io.Serializable;
 
 public class Person  implements Serializable {
-    private String fullName;
-    private String dob;
-    private String nationality;
-    private String gender;
+    private final String fullName;
+    private final String dob;
+    private final String nationality;
+    private final String gender;
     private Hall hall;
 
     public Person(String fullName, String dob, String nationality, String gender, Hall hall) {
