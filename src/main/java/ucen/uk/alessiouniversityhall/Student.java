@@ -1,13 +1,13 @@
 package ucen.uk.alessiouniversityhall;
 
 public class Student extends Person{
-    private String studentId;
-    private String phone;
-    private String course;
-    private int yearOfStudy;
-    private String diet;
-    private boolean groundFloor;
-    private Payment payment;
+    private final String studentId;
+    private final String phone;
+    private final String course;
+    private final int yearOfStudy;
+    private final String diet;
+    private final boolean groundFloor;
+    private final Payment payment;
 
     public Student(String fullName, String dob, String nationality, String gender, Hall hall, String studentId, String phone, String course, int yearOfStudy, String diet, boolean groundFloor, Payment payment) {
         super(fullName, dob, nationality, gender, hall);
