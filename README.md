@@ -46,16 +46,15 @@ University-Hall-Java/
 ├── ucen/
 │ └── uk/
 │ └── alessiouniversityhall/
-│
-│ ├── AlessioUniversityHallApp.java
-│ ├── AlessioUniGUI.java
-│ ├── Store.java
-│ ├── Person.java
-│ ├── Student.java
-│ ├── Employee.java
-│ ├── Hall.java
-│ ├── Payment.java
-│
+│       ├── AlessioUniversityHallApp.java
+│       ├── AlessioUniGUI.java
+│       ├── Store.java
+│       ├── Person.java
+│       ├── Student.java
+│       ├── Employee.java
+│       ├── Hall.java
+│       └── Payment.java
+│ 
 ├── residents.txt
 └── README.md
 ```
@@ -104,9 +103,9 @@ The University Hall GUI will open.
 |-----------------------|--------------------|
 | Ground Floor selected | Ground Hall        |
 | Vegan or Vegetarian   | VVG Hall           |
-| Halal                 | Unity Hall         |
+| Halal                 | Halal Hall         |
 | Default               | Main Hall          |
-| Employee              | Staff Members Hall |
+| Employee              | Staff Hall         |
 
 ## File Storage
 
