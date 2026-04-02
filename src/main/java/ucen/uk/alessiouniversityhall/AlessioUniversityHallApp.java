@@ -7,6 +7,6 @@ package ucen.uk.alessiouniversityhall;
 public class AlessioUniversityHallApp {
 
     public static void main(String[] args) {
-
+        new AlessioUniGUI();
     }
 }
