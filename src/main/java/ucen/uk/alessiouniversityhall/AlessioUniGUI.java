@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author Alessio
  */
-public class AlessioUniAppGUI {
+public class AlessioUniGUI {
 
     private final Store store = new Store();
     private static final String FILE_NAME = "residents.txt";
@@ -109,7 +109,7 @@ public class AlessioUniAppGUI {
     /**
      * Constructs the application GUI and initialises all components.
      */
-    public AlessioUniAppGUI() {
+    public AlessioUniGUI() {
 
         JFrame frame = new JFrame("Alessio University App");
         frame.setSize(900, 800);
