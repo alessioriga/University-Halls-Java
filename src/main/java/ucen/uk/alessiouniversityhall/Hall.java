@@ -4,10 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Hall implements Serializable {
-    private String hallName;
-    private String dietType;
-    private boolean groundFloorAvailable;
-    private ArrayList<Person> residents;
+    private final String hallName;
+    private final String dietType;
+    private final boolean groundFloorAvailable;
+    private final ArrayList<Person> residents;
 
     public Hall(String hallName, String dietType, boolean groundFloorAvailable) {
         this.hallName = hallName;
