@@ -3,6 +3,8 @@ package ucen.uk.alessiouniversityhall;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 
 /**
@@ -12,7 +14,7 @@ import java.io.*;
  *
  * @author Alessio
  */
-public class UniversityGUI {
+public class AlessioUniAppGUI {
 
     private final Store store = new Store();
     private static final String FILE_NAME = "residents.txt";
@@ -105,9 +107,9 @@ public class UniversityGUI {
     }
 
     /**
-     * Constructs the university GUI and initialises all components.
+     * Constructs the application GUI and initialises all components.
      */
-    public UniversityGUI() {
+    public AlessioUniAppGUI() {
 
         JFrame frame = new JFrame("Alessio University App");
         frame.setSize(900, 800);
@@ -116,3 +118,428 @@ public class UniversityGUI {
         displayArea = new JTextArea();
         displayArea.setEditable(false);
         displayArea.setLineWrap(true);
+
+// FORM PANEL
+
+        JPanel formPanel = new JPanel();
+        formPanel.setLayout(new GridLayout(16, 2, 10, 10));
+
+        nameField = new JTextField();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        dobField = new JFormattedTextField(format);
+        dobField.setColumns(10);
+        nationalityField = new JTextField();
+        idField = new JTextField();
+        phoneField = new JTextField();
+        yearField = new JTextField();
+        rentField = new JTextField();
+        roleField = new JTextField();
+        salaryField = new JTextField();
+
+        JRadioButton studentRadio = new JRadioButton("Student");
+        JRadioButton employeeRadio = new JRadioButton("Employee");
+
+        JRadioButton male = new JRadioButton("Male");
+        JRadioButton female = new JRadioButton("Female");
+
+        genderGroup = new ButtonGroup();
+        genderGroup.add(male);
+        genderGroup.add(female);
+
+        groundFloorBox = new JCheckBox("Ground Floor Needed");
+
+        studentRadio.addActionListener(e -> {
+
+            boolean hasData =
+                    !nameField.getText().isEmpty() ||
+                            !dobField.getText().isEmpty() ||
+                            !nationalityField.getText().isEmpty();
+
+            if (hasData) {
+
+                int confirm = JOptionPane.showConfirmDialog(
+                        frame,
+                        "Clear current form?",
+                        "Switch to Student",
+                        JOptionPane.YES_NO_OPTION
+                );
+
+                if (confirm == JOptionPane.YES_OPTION) {
+
+                    clearForm(
+                            nameField,
+                            dobField,
+                            nationalityField,
+                            idField,
+                            phoneField,
+                            yearField,
+                            rentField,
+                            roleField,
+                            salaryField,
+                            groundFloorBox
+                    );
+
+                    updateFieldState(true);
+                }
+
+            } else {
+
+                updateFieldState(true);
+            }
+        });
+
+        employeeRadio.addActionListener(e -> {
+
+            boolean hasData =
+                    !nameField.getText().isEmpty() ||
+                            !dobField.getText().isEmpty() ||
+                            !nationalityField.getText().isEmpty();
+
+            if (hasData) {
+
+                int confirm = JOptionPane.showConfirmDialog(
+                        frame,
+                        "Clear current form?",
+                        "Switch to Employee",
+                        JOptionPane.YES_NO_OPTION
+                );
+
+                if (confirm == JOptionPane.YES_OPTION) {
+
+                    clearForm(
+                            nameField,
+                            dobField,
+                            nationalityField,
+                            idField,
+                            phoneField,
+                            yearField,
+                            rentField,
+                            roleField,
+                            salaryField,
+                            groundFloorBox
+                    );
+
+                    updateFieldState(false);
+                }
+
+            } else {
+
+                updateFieldState(false);
+            }
+        });
+
+        typeGroup = new ButtonGroup();
+        typeGroup.add(studentRadio);
+        typeGroup.add(employeeRadio);
+
+
+
+        String[] courses = {"Software Engineer", "Network Engineer", "Cyber Security"};
+        courseBox = new JComboBox<>(courses);
+
+        String[] diets = {"Mixed", "Halal", "Vegetarian", "Vegan"};
+        dietBox = new JComboBox<>(diets);
+
+        // add fields
+        formPanel.add(new JLabel("Person Type"));
+        formPanel.add(studentRadio);
+        formPanel.add(new JLabel(""));
+        formPanel.add(employeeRadio);
+
+        formPanel.add(new JLabel("Full Name"));
+        formPanel.add(nameField);
+
+        formPanel.add(new JLabel("DOB (dd/MM/yyyy)"));
+        formPanel.add(dobField);
+
+        formPanel.add(new JLabel("Nationality"));
+        formPanel.add(nationalityField);
+
+        formPanel.add(new JLabel("Gender"));
+        formPanel.add(male);
+        formPanel.add(new JLabel(""));
+        formPanel.add(female);
+
+        formPanel.add(new JLabel("ID"));
+        formPanel.add(idField);
+
+        formPanel.add(new JLabel("Phone"));
+        formPanel.add(phoneField);
+
+        formPanel.add(new JLabel("Course"));
+        formPanel.add(courseBox);
+
+        formPanel.add(new JLabel("Year"));
+        formPanel.add(yearField);
+
+        formPanel.add(new JLabel("Diet"));
+        formPanel.add(dietBox);
+
+        formPanel.add(new JLabel("Rent (£)"));
+        formPanel.add(rentField);
+
+        formPanel.add(new JLabel("Ground Floor"));
+        formPanel.add(groundFloorBox);
+
+        formPanel.add(new JLabel("Employee Role"));
+        formPanel.add(roleField);
+
+        formPanel.add(new JLabel("Salary (£)"));
+        formPanel.add(salaryField);
+
+// BUTTONS
+
+        JButton addBtn = new JButton("Enter Person");
+        JButton nextBtn = new JButton("Next Record");
+        JButton saveBtn = new JButton("Save File");
+        JButton loadBtn = new JButton("Load File");
+        JButton clearBtn = new JButton("Clear");
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(5, 1, 10, 10));
+
+        buttonPanel.add(addBtn);
+        buttonPanel.add(nextBtn);
+        buttonPanel.add(saveBtn);
+        buttonPanel.add(loadBtn);
+        buttonPanel.add(clearBtn);
+
+        JSplitPane split = new JSplitPane(
+                JSplitPane.VERTICAL_SPLIT,
+                new JScrollPane(formPanel),
+                new JScrollPane(displayArea)
+        );
+
+        split.setDividerLocation(400);
+
+        frame.add(split, BorderLayout.CENTER);
+        frame.add(buttonPanel, BorderLayout.WEST);
+
+// ENTER PERSON BUTTON
+
+        addBtn.addActionListener(e -> {
+
+            try {
+
+                if (nameField.getText().isEmpty())
+                    throw new Exception("Name required");
+
+                String gender = male.isSelected() ? "Male" : "Female";
+
+                Hall hall;
+
+                int yearDob = Integer.parseInt(dobField.getText().split("/")[2]);
+
+                if (yearDob < 1940 || yearDob > 2026)
+                    throw new Exception("Year mush be between 1940 and 2026");
+
+                if (employeeRadio.isSelected()) {
+
+                    hall = staffHall;
+
+                    double salary = Double.parseDouble(salaryField.getText());
+
+                    Employee emp = new Employee(
+                            nameField.getText(),
+                            dobField.getText(),
+                            nationalityField.getText(),
+                            gender,
+                            hall,
+                            idField.getText(),
+                            roleField.getText(),
+                            salary
+                    );
+
+                    store.addPerson(emp);
+                    hall.addResident(emp);
+
+                    JOptionPane.showMessageDialog(frame, "Employee Record Added");
+
+                    clearForm(
+                            nameField,
+                            dobField,
+                            nationalityField,
+                            idField,
+                            phoneField,
+                            yearField,
+                            rentField,
+                            roleField,
+                            salaryField,
+                            groundFloorBox
+                    );
+
+                } else {
+
+                    int year = Integer.parseInt(yearField.getText());
+
+                    if (year < 1 || year > 5)
+                        throw new Exception("Year must be between 1-5");
+
+                    double rent = Double.parseDouble(rentField.getText());
+
+                    Payment payment = new Payment(rent);
+
+                    String diet = dietBox.getSelectedItem().toString();
+
+                    if (groundFloorBox.isSelected())
+                        hall = groundHall;
+                    else if (diet.equals("Vegan") || diet.equals("Vegetarian"))
+                        hall = vvgHall;
+                    else if (diet.equals("Halal"))
+                        hall = halalHall;
+                    else
+                        hall = mainHall;
+
+                    Student stu = new Student(
+                            nameField.getText(),
+                            dobField.getText(),
+                            nationalityField.getText(),
+                            gender,
+                            hall,
+                            idField.getText(),
+                            phoneField.getText(),
+                            courseBox.getSelectedItem().toString(),
+                            year,
+                            diet,
+                            groundFloorBox.isSelected(),
+                            payment
+                    );
+
+                    store.addPerson(stu);
+                    hall.addResident(stu);
+
+                    JOptionPane.showMessageDialog(frame, "Student Record Added");
+
+                    clearForm(
+                            nameField,
+                            dobField,
+                            nationalityField,
+                            idField,
+                            phoneField,
+                            yearField,
+                            rentField,
+                            roleField,
+                            salaryField,
+                            groundFloorBox
+                    );
+                }
+
+            } catch (Exception ex) {
+
+                JOptionPane.showMessageDialog(frame, "Error: " + ex.getMessage());
+            }
+
+        });
+
+// NEXT RECORD BUTTON
+
+        nextBtn.addActionListener(e -> {
+
+            Person p = store.getNextPerson();
+
+            if (p == null)
+                displayArea.setText("No records");
+            else
+                displayArea.setText(p.toString());
+        });
+
+// SAVE BUTTON
+
+        saveBtn.addActionListener(e -> {
+
+            try {
+
+                ObjectOutputStream out =
+                        new ObjectOutputStream(
+                                new FileOutputStream(FILE_NAME));
+
+                out.writeObject(store.getPeople());
+                out.close();
+
+                JOptionPane.showMessageDialog(frame, "Saved");
+
+            } catch (Exception ex) {
+
+                JOptionPane.showMessageDialog(frame, "Save error");
+            }
+
+        });
+
+// LOAD BUTTON
+
+        loadBtn.addActionListener(e -> {
+
+            try {
+
+                ObjectInputStream in =
+                        new ObjectInputStream(
+                                new FileInputStream(FILE_NAME));
+
+                ArrayList<Person> list =
+                        (ArrayList<Person>) in.readObject();
+
+                store.setPeople(list);
+                in.close();
+
+                JOptionPane.showMessageDialog(frame, "Loaded");
+
+            } catch (Exception ex) {
+
+                JOptionPane.showMessageDialog(frame, "Load error");
+            }
+
+        });
+
+// CLEAR BUTTON
+
+        clearBtn.addActionListener(e -> {
+
+            boolean hasData =
+                    !nameField.getText().isEmpty() ||
+                            !dobField.getText().isEmpty() ||
+                            !nationalityField.getText().isEmpty() ||
+                            !idField.getText().isEmpty() ||
+                            !phoneField.getText().isEmpty() ||
+                            !yearField.getText().isEmpty() ||
+                            !rentField.getText().isEmpty() ||
+                            !roleField.getText().isEmpty() ||
+                            !salaryField.getText().isEmpty() ||
+                            groundFloorBox.isSelected();
+
+            if (hasData) {
+
+                int confirm = JOptionPane.showConfirmDialog(
+                        frame,
+                        "Clear current form?",
+                        "Confirm Clear",
+                        JOptionPane.YES_NO_OPTION
+                );
+
+                if (confirm == JOptionPane.YES_OPTION) {
+
+                    clearForm(
+                            nameField,
+                            dobField,
+                            nationalityField,
+                            idField,
+                            phoneField,
+                            yearField,
+                            rentField,
+                            roleField,
+                            salaryField,
+                            groundFloorBox
+                    );
+                }
+
+            } else {
+
+                JOptionPane.showMessageDialog(frame, "Form already empty");
+            }
+        });
+
+        studentRadio.setSelected(true);
+        updateFieldState(true);
+
+        frame.setVisible(true);
+    }
+}
