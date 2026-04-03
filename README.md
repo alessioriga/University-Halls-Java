@@ -83,7 +83,7 @@ git clone https://github.com/alessioriga/University-Halls-Java
 
 Run:
 ```powershell
-MainApp.java
+AlessioUniversityHallApp.java
 ```
 The University Hall GUI will open.
 
