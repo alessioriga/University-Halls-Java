@@ -5,6 +5,7 @@ import java.awt.*;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 
 /**
@@ -286,7 +287,7 @@ public class AlessioUniGUI {
 
 // BUTTONS
 
-        JButton addBtn = new JButton("Enter Person");
+        JButton addBtn = new JButton("Add Person");
         JButton nextBtn = new JButton("Next Record");
         JButton saveBtn = new JButton("Save File");
         JButton loadBtn = new JButton("Load File");
@@ -312,11 +313,13 @@ public class AlessioUniGUI {
         frame.add(split, BorderLayout.CENTER);
         frame.add(buttonPanel, BorderLayout.WEST);
 
-// ENTER PERSON BUTTON
+// ADD PERSON BUTTON
 
         addBtn.addActionListener(e -> {
 
             try {
+
+                LocalDateTime dateTimeNow = LocalDateTime.now();
 
                 if (nameField.getText().isEmpty())
                     throw new Exception("Name required");
@@ -342,6 +345,7 @@ public class AlessioUniGUI {
                             nationalityField.getText(),
                             gender,
                             hall,
+                            dateTimeNow,
                             idField.getText(),
                             roleBox.getSelectedItem().toString(),
                             salary
@@ -392,6 +396,7 @@ public class AlessioUniGUI {
                             nationalityField.getText(),
                             gender,
                             hall,
+                            dateTimeNow,
                             idField.getText(),
                             phoneField.getText(),
                             courseBox.getSelectedItem().toString(),
