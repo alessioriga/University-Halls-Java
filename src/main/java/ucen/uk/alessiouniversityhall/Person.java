@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Alessio
  */
-public class Person  implements Serializable {
+public class Person implements Serializable {
 
     private final String fullName;
     private final String dob;
