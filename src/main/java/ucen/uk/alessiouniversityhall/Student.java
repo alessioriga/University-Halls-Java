@@ -1,5 +1,8 @@
 package ucen.uk.alessiouniversityhall;
 
+
+import java.time.LocalDateTime;
+
 /**
  * This class extends the Person class and represents a student
  * living in the university hall.
@@ -27,6 +30,7 @@ public class Student extends Person{
      * @param nationality the nationality of the student
      * @param gender the gender of the student (Male/Female)
      * @param hall the hall assigned to the student
+     * @param dateTimeStamp date and time the record was created
      * @param studentId student identification number
      * @param phone student phone number
      * @param course course of study
@@ -35,8 +39,8 @@ public class Student extends Person{
      * @param groundFloor true if ground floor is required
      * @param payment payment details for accommodation
      */
-    public Student(String fullName, String dob, String nationality, String gender, Hall hall, String studentId, String phone, String course, int yearOfStudy, String diet, boolean groundFloor, Payment payment) {
-        super(fullName, dob, nationality, gender, hall);
+    public Student(String fullName, String dob, String nationality, String gender, Hall hall, LocalDateTime dateTimeStamp, String studentId, String phone, String course, int yearOfStudy, String diet, boolean groundFloor, Payment payment) {
+        super(fullName, dob, nationality, gender, hall, dateTimeStamp);
         this.studentId = studentId;
         this.phone = phone;
         this.course = course;
