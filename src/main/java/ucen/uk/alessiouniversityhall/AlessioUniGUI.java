@@ -30,11 +30,11 @@ public class AlessioUniGUI {
     private final JTextField phoneField;
     private final JTextField yearField;
     private final JTextField rentField;
-    private final JTextField roleField;
     private final JTextField salaryField;
 
     private final JComboBox<String> courseBox;
     private final JComboBox<String> dietBox;
+    private final JComboBox<String> roleBox;
 
     private final JCheckBox groundFloorBox;
 
@@ -55,7 +55,6 @@ public class AlessioUniGUI {
      * @param phoneField phone number field
      * @param yearField year of study field
      * @param rentField rent field
-     * @param roleField employee role field
      * @param salaryField salary field
      * @param groundFloorBox ground floor checkbox
      */
@@ -67,7 +66,6 @@ public class AlessioUniGUI {
             JTextField phoneField,
             JTextField yearField,
             JTextField rentField,
-            JTextField roleField,
             JTextField salaryField,
             JCheckBox groundFloorBox
     ) {
@@ -79,7 +77,6 @@ public class AlessioUniGUI {
         phoneField.setText("");
         yearField.setText("");
         rentField.setText("");
-        roleField.setText("");
         salaryField.setText("");
 
         genderGroup.clearSelection();
@@ -102,7 +99,7 @@ public class AlessioUniGUI {
         groundFloorBox.setEnabled(isStudent);
 
         // Employee fields
-        roleField.setEnabled(!isStudent);
+        roleBox.setEnabled(!isStudent);
         salaryField.setEnabled(!isStudent);
     }
 
@@ -133,7 +130,6 @@ public class AlessioUniGUI {
         phoneField = new JTextField();
         yearField = new JTextField();
         rentField = new JTextField();
-        roleField = new JTextField();
         salaryField = new JTextField();
 
         JRadioButton studentRadio = new JRadioButton("Student");
@@ -174,7 +170,6 @@ public class AlessioUniGUI {
                             phoneField,
                             yearField,
                             rentField,
-                            roleField,
                             salaryField,
                             groundFloorBox
                     );
@@ -214,7 +209,6 @@ public class AlessioUniGUI {
                             phoneField,
                             yearField,
                             rentField,
-                            roleField,
                             salaryField,
                             groundFloorBox
                     );
@@ -239,6 +233,9 @@ public class AlessioUniGUI {
 
         String[] diets = {"Mixed", "Halal", "Vegetarian", "Vegan"};
         dietBox = new JComboBox<>(diets);
+
+        String[] roles = {"Professor", "PhD Student", "HR Manager", "Cleaner", "Career Advisor", "President", "IT Technician"};
+        roleBox = new JComboBox<>(roles);
 
         // add fields
         formPanel.add(new JLabel("Person Type"));
@@ -269,7 +266,7 @@ public class AlessioUniGUI {
         formPanel.add(new JLabel("Course"));
         formPanel.add(courseBox);
 
-        formPanel.add(new JLabel("Year"));
+        formPanel.add(new JLabel("Year of Study"));
         formPanel.add(yearField);
 
         formPanel.add(new JLabel("Diet"));
@@ -282,7 +279,7 @@ public class AlessioUniGUI {
         formPanel.add(groundFloorBox);
 
         formPanel.add(new JLabel("Employee Role"));
-        formPanel.add(roleField);
+        formPanel.add(roleBox);
 
         formPanel.add(new JLabel("Salary (£)"));
         formPanel.add(salaryField);
@@ -346,7 +343,7 @@ public class AlessioUniGUI {
                             gender,
                             hall,
                             idField.getText(),
-                            roleField.getText(),
+                            roleBox.getSelectedItem().toString(),
                             salary
                     );
 
@@ -363,7 +360,6 @@ public class AlessioUniGUI {
                             phoneField,
                             yearField,
                             rentField,
-                            roleField,
                             salaryField,
                             groundFloorBox
                     );
@@ -418,7 +414,6 @@ public class AlessioUniGUI {
                             phoneField,
                             yearField,
                             rentField,
-                            roleField,
                             salaryField,
                             groundFloorBox
                     );
@@ -502,7 +497,6 @@ public class AlessioUniGUI {
                             !phoneField.getText().isEmpty() ||
                             !yearField.getText().isEmpty() ||
                             !rentField.getText().isEmpty() ||
-                            !roleField.getText().isEmpty() ||
                             !salaryField.getText().isEmpty() ||
                             groundFloorBox.isSelected();
 
@@ -525,7 +519,6 @@ public class AlessioUniGUI {
                             phoneField,
                             yearField,
                             rentField,
-                            roleField,
                             salaryField,
                             groundFloorBox
                     );
