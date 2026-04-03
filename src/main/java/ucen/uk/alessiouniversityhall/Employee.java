@@ -1,5 +1,7 @@
 package ucen.uk.alessiouniversityhall;
 
+import java.time.LocalDateTime;
+
 /**
  * This class extends the Person class and inherits basic personal
  * information such as full name, date of birth, nationality, gender,
@@ -20,14 +22,15 @@ public class Employee extends Person {
      * @param dob the date of birth in format DD/MM/YYYY
      * @param nationality the nationality of the employee
      * @param gender the gender of the employee (Male/Female)
-     * @param hall the hall where the employee is
+     * @param hall assigned hall
+     * @param dateTimeStamp date and time the record was created
      * @param employeeId employee identification number
      * @param role job role
      * @param salary salary of the employee in GBP
      */
-    public Employee(String fullName, String dob, String nationality, String gender, Hall hall, String employeeId, String role, double salary) {
+    public Employee(String fullName, String dob, String nationality, String gender, Hall hall, LocalDateTime dateTimeStamp, String employeeId, String role, double salary) {
 
-        super(fullName, dob, nationality, gender, hall);
+        super(fullName, dob, nationality, gender, hall, dateTimeStamp);
 
         this.employeeId = employeeId;
         this.role = role;
