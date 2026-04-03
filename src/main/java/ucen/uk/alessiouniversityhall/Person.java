@@ -1,6 +1,9 @@
 package ucen.uk.alessiouniversityhall;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 /**
  * This class serves as a base class for Student and Employee,
@@ -17,6 +20,7 @@ public class Person  implements Serializable {
     private final String nationality;
     private final String gender;
     private Hall hall;
+    private final LocalDateTime dateTimeStamp;
 
     /**
      * Constructs a new Person with basic personal information.
@@ -26,13 +30,15 @@ public class Person  implements Serializable {
      * @param nationality the nationality of the person
      * @param gender the gender of the person
      * @param hall the hall assigned to the person
+     * @param dateTimeStamp the date and time that the record was entered
      */
-    public Person(String fullName, String dob, String nationality, String gender, Hall hall) {
+    public Person(String fullName, String dob, String nationality, String gender, Hall hall, LocalDateTime dateTimeStamp) {
         this.fullName = fullName;
         this.dob = dob;
         this.nationality = nationality;
         this.gender = gender;
         this.hall = hall;
+        this.dateTimeStamp = dateTimeStamp;
     }
 
     /**
@@ -88,6 +94,26 @@ public class Person  implements Serializable {
     public void setHall(Hall hall) {
         this.hall = hall;
     }
+
+    /**
+     * Returns the date and time the record was created.
+     *
+     * @return timestamp
+     */
+    public LocalDateTime getDateTimeStamp() {
+        return dateTimeStamp;
+    }
+
+    /**
+     * Returns formatted timestamp.
+     *
+     * @return formatted timestamp
+     */
+    public String getFormattedDateTimeStamp() {
+        DateTimeFormatter formattedStamp = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        return dateTimeStamp.format(formattedStamp);
+    }
+
     /**
      *
      * Returns a formatted string representation of the person.
@@ -101,6 +127,7 @@ public class Person  implements Serializable {
                 ", DOB: " + dob +
                 ", Nationality: " + nationality +
                 ", Gender: " + gender +
-                ", Hall: " + hall.getHallName();
+                ", Hall: " + hall.getHallName() +
+                ", Created: " + getFormattedDateTimeStamp();
     }
 }
