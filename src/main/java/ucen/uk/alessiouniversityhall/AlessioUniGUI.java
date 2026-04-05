@@ -372,8 +372,8 @@ public class AlessioUniGUI {
 
                     int year = Integer.parseInt(yearField.getText());
 
-                    if (year < 1 || year > 5)
-                        throw new Exception("Year must be between 1-5");
+                    if (year < 1 || year > 3)
+                        throw new Exception("Year must be between 1-3");
 
                     double rent = Double.parseDouble(rentField.getText());
 
