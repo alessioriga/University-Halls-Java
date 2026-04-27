@@ -4,7 +4,7 @@
 ![Swing](https://img.shields.io/badge/GUI-Java%20Swing-blue)
 ![OOP](https://img.shields.io/badge/Programming-OOP-green)
 ![Serialization](https://img.shields.io/badge/Data-Serialization-orange)
-![Licence](https://img.shields.io/badge/Licence-MIT-lightgrey)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 A **Java-based desktop application** that simulates a university hall management system, allowing users to manage students and employees, assign halls, and store resident data through an interactive graphical interface.
 
@@ -121,6 +121,6 @@ using Java serialisation.
 - Improve modularity of the code
 - Add edit and delete resident functionality
 
-## Licence
+## License
 
-This project is licensed under the MIT Licence.
+This project is licensed under the MIT License.
