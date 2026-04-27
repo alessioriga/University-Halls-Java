@@ -331,7 +331,7 @@ public class AlessioUniGUI {
                 int yearDob = Integer.parseInt(dobField.getText().split("/")[2]);
 
                 if (yearDob < 1940 || yearDob > 2026)
-                    throw new Exception("Year mush be between 1940 and 2026");
+                    throw new Exception("Year must be between 1940 and 2026");
 
                 if (employeeRadio.isSelected()) {
 
