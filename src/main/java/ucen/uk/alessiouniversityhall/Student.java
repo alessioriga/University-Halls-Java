@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 public class Student extends Person{
 
     private final String studentId;
-    private final String phone;
     private final String course;
     private final int yearOfStudy;
     private final String diet;
@@ -29,20 +28,19 @@ public class Student extends Person{
      * @param dob the date of birth in format DD/MM/YYYY
      * @param nationality the nationality of the student
      * @param gender the gender of the student (Male/Female)
+     * @param phone  the phone number of the student
      * @param hall the hall assigned to the student
      * @param dateTimeStamp date and time the record was created
      * @param studentId student identification number
-     * @param phone student phone number
      * @param course course of study
      * @param yearOfStudy current year of study (1–5)
      * @param diet diet requirement (Vegan, Vegetarian, Halal, Mixed)
      * @param groundFloor true if ground floor is required
      * @param payment payment details for accommodation
      */
-    public Student(String fullName, String dob, String nationality, String gender, Hall hall, LocalDateTime dateTimeStamp, String studentId, String phone, String course, int yearOfStudy, String diet, boolean groundFloor, Payment payment) {
-        super(fullName, dob, nationality, gender, hall, dateTimeStamp);
+    public Student(String fullName, String dob, String nationality, String gender, String phone, Hall hall, LocalDateTime dateTimeStamp, String studentId, String course, int yearOfStudy, String diet, boolean groundFloor, Payment payment) {
+        super(fullName, dob, nationality, gender, phone, hall, dateTimeStamp);
         this.studentId = studentId;
-        this.phone = phone;
         this.course = course;
         this.yearOfStudy = yearOfStudy;
         this.diet = diet;
@@ -57,15 +55,6 @@ public class Student extends Person{
      */
     public String getStudentId() {
         return studentId;
-    }
-
-    /**
-     * Returns the student phone number.
-     *
-     * @return phone number
-     */
-    public String getPhone() {
-        return phone;
     }
 
     /**
@@ -124,7 +113,6 @@ public class Student extends Person{
 
         return  super.toString() +
                 "\nStudent ID: " + studentId +
-                "\nPhone: " + phone +
                 "\nCourse: " + course +
                 "\nYear: " + yearOfStudy +
                 "\nDiet: " + diet +
