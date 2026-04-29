@@ -19,6 +19,7 @@ public class Person implements Serializable {
     private final String dob;
     private final String nationality;
     private final String gender;
+    private final String phone;
     private Hall hall;
     private final LocalDateTime dateTimeStamp;
 
@@ -29,14 +30,16 @@ public class Person implements Serializable {
      * @param dob the date of birth in format DD/MM/YYYY
      * @param nationality the nationality of the person
      * @param gender the gender of the person
+     * @param phone  the phone number of the person
      * @param hall the hall assigned to the person
      * @param dateTimeStamp the date and time that the record was entered
      */
-    public Person(String fullName, String dob, String nationality, String gender, Hall hall, LocalDateTime dateTimeStamp) {
+    public Person(String fullName, String dob, String nationality, String gender, String phone, Hall hall, LocalDateTime dateTimeStamp) {
         this.fullName = fullName;
         this.dob = dob;
         this.nationality = nationality;
         this.gender = gender;
+        this.phone = phone;
         this.hall = hall;
         this.dateTimeStamp = dateTimeStamp;
     }
@@ -75,6 +78,15 @@ public class Person implements Serializable {
      */
     public String getGender() {
         return gender;
+    }
+
+    /**
+     * Returns phone number of the person.
+     *
+     * @return phone number
+     */
+    public String getPhone() {
+        return phone;
     }
 
     /**
@@ -127,6 +139,7 @@ public class Person implements Serializable {
                 ", DOB: " + dob +
                 ", Nationality: " + nationality +
                 ", Gender: " + gender +
+                ", Phone: " + phone +
                 ", Hall: " + hall.getHallName() +
                 ", Created: " + getFormattedDateTimeStamp();
     }
